@@ -39,6 +39,9 @@ export const SearchInput = styled.input`
   padding: 0 1rem;
   border: none;
 
+  font-family: "GowunDodum";
+  font-size: 1.2rem;
+
   outline: none;
 
   transition: all 0.35s;
@@ -51,25 +54,50 @@ export const ResultList = styled.ul`
 
   top: 2rem;
 
-  margin: 0;
-  padding-left: 1rem;
   border-top: 1px solid black;
 
   background-color: white;
-
-  list-style: none;
 `;
 
 export const ResultItem = styled.li`
   width: 100%;
+
+  padding-left: 1rem;
 
   font-family: "GowunDodum";
 
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(9, 52, 131, 0.3);
   }
 `;
 
-export const RankingBox = styled.div``;
+export const RankingBox = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 2rem;
+
+  margin-top: 1rem;
+  padding: 0 3rem;
+
+  overflow: hidden;
+`;
+
+export const RankingList = styled.ul`
+  transition: all 0.35s;
+`;
+
+export const RankingItem = styled.li`
+  height: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: "GowunDodum";
+  font-size: 1.2rem;
+
+  color: white;
+`;
