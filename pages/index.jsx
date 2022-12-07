@@ -1,10 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Seo from "../components/Seo/Seo.jsx";
 import * as Styled from "../styles/PagesStyled/indexStyled.jsx";
 
 export default function Home({ coinList }) {
   const [search, setSearch] = useState("");
   const [resultList, setResultList] = useState([]);
+
+  const rankingRef = useRef();
+  const [count, setCount] = useState(1);
+  const rankingList = coinList
+    ? coinList.slice(0, 10).map((coin, index) => {
+        const { id, name } = coin;
+
+        return (
+          <Styled.RankingItem key={id}>
+            {index + 1}. {name}
+          </Styled.RankingItem>
+        );
+      })
+    : [];
 
   const handleOnChangeSearch = (event) => {
     const { value } = event.target;
@@ -28,6 +42,17 @@ export default function Home({ coinList }) {
     } else setResultList([]);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      rankingRef.current.style.margin = `-${count * 2}rem 0 0 0`;
+      setCount(count + 1);
+    }, 3000);
+
+    if (count === 10) setCount(0);
+
+    return () => clearInterval(interval);
+  });
+
   return (
     <Styled.IndexLayout>
       <Seo title={"Home"} />
@@ -44,7 +69,9 @@ export default function Home({ coinList }) {
         />
         <Styled.ResultList>{resultList}</Styled.ResultList>
       </Styled.SearchBox>
-      <Styled.RankingBox></Styled.RankingBox>
+      <Styled.RankingBox>
+        <Styled.RankingList ref={rankingRef}>{rankingList}</Styled.RankingList>
+      </Styled.RankingBox>
     </Styled.IndexLayout>
   );
 }
