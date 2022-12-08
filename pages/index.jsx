@@ -1,54 +1,50 @@
 import { useEffect, useRef, useState } from "react";
+import CoinList from "../components/CoinList/CoinList.jsx";
+import Search from "../components/Search/Search.jsx";
 import Seo from "../components/Seo/Seo.jsx";
+import Title from "../components/Title/Title.jsx";
 import * as Styled from "../styles/PagesStyled/indexStyled.jsx";
 
 export default function Home({ coinList }) {
   const [search, setSearch] = useState("");
   const [resultList, setResultList] = useState([]);
 
-  const handleOnChangeSearch = (event) => {
-    const { value } = event.target;
+  // const handleOnChangeSearch = (event) => {
+  //   const { value } = event.target;
 
-    setSearch(value);
+  //   setSearch(value);
 
-    let searchList = coinList
-      .filter((coin) => {
-        return coin.name.toUpperCase().includes(value.toUpperCase());
-      })
-      .map((coin) => {
-        const { id, name } = coin;
-        return <Styled.ResultItem key={id}>{name}</Styled.ResultItem>;
-      });
+  //   let searchList = coinList
+  //     .filter((coin) => {
+  //       return coin.name.toUpperCase().includes(value.toUpperCase());
+  //     })
+  //     .map((coin) => {
+  //       const { id, name } = coin;
+  //       return (
+  //         <Styled.ResultItem
+  //           key={id}
+  //           id={JSON.stringify(coin)}
+  //           onClick={handleOnClickResultCoin}
+  //         >
+  //           {name}
+  //         </Styled.ResultItem>
+  //       );
+  //     });
 
-    if (searchList.length > 10) searchList = searchList.slice(0, 10);
-    else searchList = searchList.slice(0, searchList.length);
+  //   if (searchList.length > 10) searchList = searchList.slice(0, 10);
+  //   else searchList = searchList.slice(0, searchList.length);
 
-    if (value) {
-      setResultList(searchList);
-    } else setResultList([]);
-  };
-
-  const handleOnKeyPressSearchCoin = () => {
-    console.log("안녕!");
-  };
+  //   if (value) {
+  //     setResultList(searchList);
+  //   } else setResultList([]);
+  // };
 
   return (
     <Styled.IndexLayout>
       <Seo title={"Home"} />
-      <Styled.Title>
-        <Styled.EmphasisTitle>R</Styled.EmphasisTitle>ealtime{" "}
-        <Styled.EmphasisTitle>C</Styled.EmphasisTitle>oin{" "}
-        <Styled.EmphasisTitle>S</Styled.EmphasisTitle>tatus
-      </Styled.Title>
-      <Styled.SearchBox>
-        <Styled.SearchInput
-          type="text"
-          value={search}
-          onChange={handleOnChangeSearch}
-          onKeyPress={handleOnKeyPressSearchCoin}
-        />
-        <Styled.ResultList>{resultList}</Styled.ResultList>
-      </Styled.SearchBox>
+      <Title />
+      <Search search={search} setSearch={setSearch} />
+      <CoinList />
     </Styled.IndexLayout>
   );
 }
