@@ -8,5 +8,5 @@ export const Layout = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #093483;
+  background-color: rgb(9, 52, 131);
 `;
