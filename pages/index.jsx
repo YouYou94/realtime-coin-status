@@ -13,9 +13,7 @@ export default function Home({ coinList }) {
 
 export async function getServerSideProps() {
   const coinList = await (
-    await (
-      await fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
-    ).json()
+    await (await fetch("http://localhost:3000/api/coins")).json()
   ).slice(0, 100);
 
   return {
