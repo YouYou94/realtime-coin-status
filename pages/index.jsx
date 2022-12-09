@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import Header from "../components/Header/Header.jsx";
+import Ranking from "../components/Ranking/Ranking.jsx";
 import Seo from "../components/Seo/Seo.jsx";
 import * as Styled from "../styles/PagesStyled/indexStyled.jsx";
 
 export default function Home({ coinList }) {
-  console.log(coinList);
   return (
     <Styled.IndexLayout>
       <Seo title={"Home"} />
+      <Header />
+      <Ranking coinList={coinList} />
     </Styled.IndexLayout>
   );
 }
@@ -22,6 +24,3 @@ export async function getServerSideProps() {
     },
   };
 }
-// https://api.coinpaprika.com/v1/coins
-
-// https://api.coinpaprika.com/v1/tickers?quotes=KRW
