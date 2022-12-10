@@ -5,12 +5,12 @@ export default function Ranking({ coinList }) {
   const [count, setCount] = useState(0);
 
   const handleOnClickShowPrev = () => {
-    if (count === 0) alert("처음입니다.");
+    if (count === 0) alert("맨 처음입니다.");
     else setCount(count - 1);
   };
 
   const handleOnClickShowNext = () => {
-    if (count === 4) alert("마지막입니다.");
+    if (count === 4) alert("맨 마지막입니다.");
     else setCount(count + 1);
   };
 
@@ -74,11 +74,11 @@ export default function Ranking({ coinList }) {
           <Styled.RankingItemRank>순위</Styled.RankingItemRank>
           <Styled.RankingItemName head={"head"}>종목</Styled.RankingItemName>
           <Styled.RankingItemSymbol>기호</Styled.RankingItemSymbol>
-          <Styled.RankingItemPrice>가격(KRW)</Styled.RankingItemPrice>
+          <Styled.RankingItemPrice>가격 (KRW)</Styled.RankingItemPrice>
           <Styled.RankingItemMarget>총 시가</Styled.RankingItemMarget>
-          <Styled.RankingItemVolume>거래량(24H)</Styled.RankingItemVolume>
-          <Styled.RankingItemVolume>변동(24H)</Styled.RankingItemVolume>
-          <Styled.RankingItemVolume>변동(7D)</Styled.RankingItemVolume>
+          <Styled.RankingItemVolume>거래량 (24H)</Styled.RankingItemVolume>
+          <Styled.RankingItemVolume>변동 (24H)</Styled.RankingItemVolume>
+          <Styled.RankingItemVolume>변동 (7D)</Styled.RankingItemVolume>
         </Styled.RankingHead>
         <Styled.RankingCarousel>{rankingList}</Styled.RankingCarousel>
       </Styled.RankingList>
