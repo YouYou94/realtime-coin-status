@@ -1,16 +1,17 @@
-import styled from "styled-components"
-import Seo from "../components/Seo/Seo";
+import styled from 'styled-components';
+import Seo from '../components/Seo/Seo';
 
 export default function Home() {
-    return (
+  return (
     <IndexLayout>
-        <Seo title='Home' />
-    </IndexLayout>)
+      <Seo title="Home" />
+    </IndexLayout>
+  );
 }
 
 export const IndexLayout = styled.div`
-    flex: 1;
+  flex: 1;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
