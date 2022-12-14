@@ -5,8 +5,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/coins",
-        destination: "https://api.coinpaprika.com/v1/tickers?quotes=KRW",
+        source: '/api/coins',
+        destination: 'https://api.coinpaprika.com/v1/tickers?quotes=KRW',
       },
     ];
   },
