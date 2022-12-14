@@ -1,8 +1,11 @@
-import React from 'react';
+import * as Styled from './styled';
 
-
-const Header:React.FC = () => {
-    return <></>
-}
+const Header = () => {
+  return (
+    <Styled.HeaderLayout>
+      <Styled.HeaderTitle>Realtime Coin Status</Styled.HeaderTitle>
+    </Styled.HeaderLayout>
+  );
+};
 
 export default Header;
